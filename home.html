@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = [1, 2, 3, 5, 8];
+        function check(element) {
+            return element >= 2;
+        }
+        // var a = arr.filter(check);
+        // console.log(a);
+        Array.prototype.filter1 = function (callback) {
+            var newarr = [];
+            for (var e of this) {
+                if (callback(e))
+                    newarr.push(e);
+            }
+            return newarr;
+        }
+        var a1 = arr.filter1(check);
+        console.log(a1);
+        // map in js
+        var a = arr.map(check);
+        console.log(a);
+
+        var data = [
+            {
+                name: 'Hung',
+                react: 5,
+                sa: 8
+            },
+            {
+                name: 'Dan',
+                react: 2,
+                sa: 6
+            },
+            {
+                name: 'Manh',
+                react: 8,
+                sa: 9
+            }
+        ]
+        function checkCouser(element) {
+            if ((element.react + element.sa) > 10) {
+                {
+                    element.result = "passed";
+                    delete element.sa;
+                    delete element.react;
+                    return element;
+                }
+            }
+            else {
+                element.result = "failed";
+                delete element.sa;
+                delete element.react;
+                return element;
+            }
+
+        }
+        var cc = data.map(checkCouser);
+        console.log(cc);
+        //------
+        Array.prototype.map1 = function (callback) {
+            var newarr = [];
+            for (var e of this) {
+                newarr.push(callback(e));
+            }
+            return newarr;
+        }
+        function checkmap1(element) {
+            return element + 2;
+        }
+        var map1out = data.map1(checkCouser);
+        console.log(map1out);
+        //---
+        const array1 = [1, 2, 3, 4];
+
+        // 0 + 1 + 2 + 3 + 4
+        const initialValue = 0;
+        const sumWithInitial = array1.reduce(
+            (previousValue, currentValue) => previousValue + currentValue,
+            initialValue
+        );
+
+        console.log(sumWithInitial);
+// expected output: 10
+
+    </script>
+</body>
+
+</html>

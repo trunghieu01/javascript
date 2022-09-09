@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="../js/index.js"></script> -->
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <container style="box-sizing: border-box; display: flexbox; ">
+        <contain>
+           
+            <input type="text" class="inp-a" id="a">
+            <br>
+            <p>b</p>
+            <input type="text" class="inp-b" id="b">
+            <br>
+            <button id="btn-Sum">Sum</button>
+            <p id="result"></p>
+        </contain>
+    </container> -->
+    <script>
+        const inp1 = document.createElement("input");
+        const inp2 = document.createElement("input");
+        const br1 = document.createElement("br");
+        const btnsum = document.createElement("button");
+
+        const para1 = document.createElement("p");
+        const para2 = document.createElement("p");
+        const results = document.createElement("p");
+        para1.innerText = "a";
+        para2.innerText = "b";
+        btnsum.innerText = "Sum";
+        // Append to body:
+        document.body.appendChild(para1);
+        document.body.appendChild(inp1);
+        document.body.appendChild(para2);
+        document.body.appendChild(inp2);
+        document.body.appendChild(br1);
+        document.body.appendChild(btnsum);
+        document.body.appendChild(results);
+
+        inp1.setAttribute('id', 'inp1');
+        inp2.setAttribute('id', 'inp2');
+        results.setAttribute('id', 'results');
+        btnsum.setAttribute('id', 'btn_sum');
+        function tinhtong(){
+            var soA = parseInt(document.getElementById("inp1").value);
+            var soB = parseInt(document.getElementById("inp2").value);
+            var sum = Number(soA + soB);
+            return sum;
+        }
+
+       
+        document.getElementById("btn_sum").onclick = function() {
+           
+            document.getElementById("results").innerHTML = tinhtong();
+            console.log(tinhtong());
+        };
+//--------------------------------
+        var arr = [12,3,4,5];
+        function fc (element){
+            // console.log(element);
+            return element >= 4;
+        }
+        var a = arr.find(fc);
+        // console.log(a);
+//------------------------------
+        Array.prototype.find1 = function(callback) {
+            for(var a of this){
+                if(callback(element))
+                return element;
+            }
+            return undefined;
+        }
+        function check(element){
+            return element == 4;
+        }
+        var afin = arr.find1(check);
+        console.log(afin);
+    </script>
+</body>
+
+</html>
